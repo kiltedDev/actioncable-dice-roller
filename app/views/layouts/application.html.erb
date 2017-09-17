@@ -9,6 +9,39 @@
   </head>
 
   <body>
-    <%= yield %>
+    <ul class="navbar">
+      <% if user_signed_in? %>
+        <%= yield :right_nav %>
+
+        <li>
+          <a href="#"><%= current_user.username %></a>
+          <ul>
+            <li><%= link_to "Settings", edit_user_registration_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
+    </ul>
+    <div>
+      <div class="row">
+          <div class="small-2 columns sidebar-left">
+          <% if user_signed_in? %>
+            <h5>Tables</h5>
+            <ul>
+              <% current_user.tables .each do |table| %>
+              <%= link_to table.name, table_path(table) %>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+
+          <div class="small-10 columns">
+          <%= yield %>
+          </div>
+      </div>
+    </div>
   </body>
 </html>
