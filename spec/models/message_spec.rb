@@ -1,12 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Message, type: :model do
-  context "#user" do
+  context "#message" do
+    it { should have_valid(:body).when("Roll for Initiative", "Marquis, you're dead.")}
+    it { should_not have_valid(:body).when(nil, '')}
 
-        it { should have_valid(:body).when('Awesome Cat Review', "I didn't know bikes had two wheels")}
-        it { should_not have_valid(:body).when(nil, '')}
+  end
 
-        it { should belong_to :user }
-        it { should belong_to :table }
+  context "associations" do
+    it { should belong_to :user }
+    it { should belong_to :table }
   end
 end

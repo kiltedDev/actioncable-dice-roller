@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
     message = @table.messages.new(message_params)
     message.user = current_user
     message.save
+    MessageRelayJob.perform_later(message)
   end
 
   private

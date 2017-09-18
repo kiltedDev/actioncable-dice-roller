@@ -11,7 +11,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'dotenv-rails'
 gem 'devise'
-gem 'redis'
+gem 'redis', '~> 3.3'
 
 group :development do
   gem 'listen', '~> 3.0.5'

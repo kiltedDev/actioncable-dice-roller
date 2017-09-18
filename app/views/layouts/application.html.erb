@@ -27,20 +27,20 @@
     </ul>
     <div>
       <div class="row">
-          <div class="small-2 columns sidebar-left">
+        <div class="sidebar-left two columns">
           <% if user_signed_in? %>
             <h5>Tables</h5>
             <ul>
               <% current_user.tables .each do |table| %>
-              <%= link_to table.name, table_path(table) %>
+              <li><%= link_to table.name, table, data: {behavior: "table-link", table_id: table.id} %></li>
               <% end %>
             </ul>
           <% end %>
         </div>
 
-          <div class="small-10 columns">
+        <div class="view-port ten columns">
           <%= yield %>
-          </div>
+        </div>
       </div>
     </div>
   </body>

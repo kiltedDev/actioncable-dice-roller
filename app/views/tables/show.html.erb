@@ -1,15 +1,18 @@
-<div class="title-bar">
+<div class="title-bar ten columns">
   <p><strong> Name: </strong><%= @table.name %></p>
 </div>
 
 <div class="message-box">
-  <% @messages.each do |message| %>
-  <div><strong><%= message.user.username %>:</strong><%= message.body %></div>
-  <% end %>
-</div>
+  <div data-behavior='messages' data-table-id='<%= @table.id %>'>
+    <% @messages.each do |message| %>
+      <%= render message %>
+    <% end %>
 
-<div class="message-form-box">
-  <%= form_for [@table, Message.new], remote: true do |f| %>
+  </div>
+
+  <div class="message-form-box">
+    <%= form_for [@table, Message.new], remote: true do |f| %>
     <%= f.text_field :body, rows: 1, autofocus: true %>
-  <% end %>
+    <% end %>
+  </div>
 </div>

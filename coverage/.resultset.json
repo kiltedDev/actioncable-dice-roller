@@ -1,0 +1,192 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/models/user.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/helpers/table_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/models/message.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/models/table.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/models/table_user.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/channels/tables_channel.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/controllers/messages_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/controllers/table_users_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/controllers/tables_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1505687983
+  }
+}

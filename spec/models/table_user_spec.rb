@@ -12,4 +12,5 @@ RSpec.describe TableUser, type: :model do
   context "#associations" do
     it { should belong_to :table}
     it { should belong_to :user}
-  endend
+  end
+end
