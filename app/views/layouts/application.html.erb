@@ -3,45 +3,62 @@
   <head>
     <title>DiceRoller</title>
     <%= csrf_meta_tags %>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script src="js/modernizr.js"></script>
   </head>
 
   <body>
-    <ul class="navbar">
-      <% if user_signed_in? %>
-        <%= yield :right_nav %>
+    <header class="cd-header">
+    	<a href="#0" class="cd-logo"><img src="img/cd-logo.svg" alt="Logo"></a>
+    	<a href="#0" class="cd-3d-nav-trigger">Menu<span></span></a>
+    </header>
 
-        <li>
-          <a href="#"><%= current_user.username %></a>
-          <ul>
-            <li><%= link_to "Settings", edit_user_registration_path %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </li>
-      <% else %>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <li><%= link_to "Login", new_user_session_path %></li>
-      <% end %>
-    </ul>
-    <div>
-      <div class="row">
-        <div class="sidebar-left two columns">
-          <% if user_signed_in? %>
-            <h5>Tables</h5>
-            <ul>
-              <% current_user.tables .each do |table| %>
-              <li><%= link_to table.name, table, data: {behavior: "table-link", table_id: table.id} %></li>
-              <% end %>
-            </ul>
-          <% end %>
-        </div>
+    <main>
+      <div>
+        <div class="row">
+          <div class="sidebar-left two columns">
+            <% if user_signed_in? %>
+              <h5>Tables</h5>
+              <ul>
+                <% current_user.tables .each do |table| %>
+                <li><%= link_to table.name, table, data: {behavior: "table-link", table_id: table.id} %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
 
-        <div class="view-port ten columns">
-          <%= yield %>
+          <div class="view-port ten columns">
+            <%= yield %>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
+
+    <nav class="cd-3d-nav-container">
+    	<ul class="cd-3d-nav">
+        <li class="cd-selected">
+    			<a href="#0">Dashboard</a>
+    		</li>
+        <li class="cd-selected">
+          <a href="#0">Dice</a>
+        </li>
+        <li class="cd-selected">
+          <a href="#0">Users</a>
+        </li>
+        <li class="cd-selected">
+          <a href="#0">Rolls</a>
+        </li>
+        <li class="cd-selected">
+          <a href="#0">User</a>
+        </li>
+    	</ul>
+    	<span class="cd-marker color-1"></span>
+    </nav>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

@@ -410,15 +410,58 @@
  /* Larger than Desktop HD */
  @media (min-width: 1200px) {}
 
-  .navbar {
-   height: 10vh;
-   width: 100vw;
-   position: fixed;
-   left: 0px;
-   top: 0px;
-   z-index: 5;
-   margin: 0;
-  }
+.cd-header {
+  transition: transform 0.5s;
+}
+.cd-header.nav-is-visible {
+  transform: translateY(80px);
+}
+
+.cd-3d-nav-container {
+  /* this is the 3D navigation container */
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  /* enable a 3D-space for children elements */
+  perspective: 1000px;
+  transform: translateY(-100%);
+  transition: transform 0.5s 0s, visibility 0s 0.5s;
+}
+.cd-3d-nav-container.nav-is-visible {
+  visibility: visible;
+  transform: translateY(0);
+  transition: transform 0.5s 0s, visibility 0.5s 0s;
+}
+.cd-3d-nav {
+  /* this is the 3D rotating navigation */
+  transform-origin: center bottom;
+  transform: rotateX(90deg);
+  transition: transform 0.5s;
+}
+main {
+  transition: transform 0.5s;
+}
+main.nav-is-visible {
+  transform: translateY(80px);
+}
+.cd-marker {
+  background-color: currentColor;
+}
+.cd-marker::before {
+    /* triangle at the bottom of nav selected item */
+    height: 0;
+    width: 0;
+    border: 10px solid transparent;
+    border-bottom-color: inherit;
+}
+.color-1 {
+  color: #9a57bd;
+}
+
+.color-2 {
+  color: #c96aa4;
+}
   .sidebar-left {
    height: 90vh;
    position: fixed;
