@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917161545) do
+ActiveRecord::Schema.define(version: 20170919155554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dice_sets", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
+    t.string "store_link"
+    t.string "d4_url", null: false
+    t.string "d6_url", null: false
+    t.string "d8_url", null: false
+    t.string "d10_url", null: false
+    t.string "d100_url", null: false
+    t.string "d12_url", null: false
+    t.string "d20_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "die_rolls", force: :cascade do |t|
+    t.integer "dice_count", default: 1, null: false
+    t.integer "die_size", null: false
+    t.integer "bonus"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.bigint "table_id"

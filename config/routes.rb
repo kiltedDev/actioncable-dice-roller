@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :tables do
     resource :table_users
     resources :messages
+    resources :die_rolls
   end
 
   devise_for :users

@@ -7,3 +7,8 @@ $(document).on "turbolinks:load", ->
     if e && e.keyCode == 13
       e.preventDefault()
       $(this).submit()
+
+$(document).on "turbolinks:load", ->
+  $("#new_die_roll").on "submit", (ev) ->
+      ev.preventDefault()
+      $(this).submit()

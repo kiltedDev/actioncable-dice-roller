@@ -2,17 +2,34 @@
   <p><strong> Name: </strong><%= @table.name %></p>
 </div>
 
-<div class="message-box">
-  <div data-behavior='messages' data-table-id='<%= @table.id %>'>
+<div class="message-box ten columns">
+  <div class="ten columns" data-behavior='messages' data-table-id='<%= @table.id %>'>
     <% @messages.each do |message| %>
       <%= render message %>
     <% end %>
 
   </div>
 
-  <div class="message-form-box">
-    <%= form_for [@table, Message.new], remote: true do |f| %>
-    <%= f.text_field :body, rows: 1, autofocus: true %>
+  <div class="dice-box two columns">
+    <%= form_for [@table, DieRoll.new], remote: true do |f| %>
+      <div class="six columns">
+        <%= f.select(:dice_count, @roll_limit.map { |dice_pool| [ dice_pool, dice_pool ] }) %>
+      </div>
+
+      <%= f.collection_radio_buttons(:die_size,  @die_sizes, :first, :last) do |b| %>
+        <div class="six columns">
+          <%= b.label { image_tag("#{b.text}") + b.radio_button } %>
+        </div>
+      <% end %>
+
+      <%= f.text_field :bonus, placeholder: "Bonus" %>
+      <%= f.submit "Roll'em!" %>
     <% end %>
   </div>
+
+  <div class="message-form-box twelve columns">
+      <%= form_for [@table, Message.new], remote: true do |f| %>
+      <%= f.text_field :body, rows: 1, autofocus: true %>
+      <% end %>
+    </div>
 </div>
