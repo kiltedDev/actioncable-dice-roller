@@ -16,10 +16,11 @@ class TablesController < ApplicationController
 
   def create
    @table = Table.new(table_params)
+   @table.game_master = current_user
 
    respond_to do |format|
      if @table.save
-       @table.table_users.where(user_id: current_user.id).first_or_create
+       @table.invitations.where(user_id: current_user.id).first_or_create
        format.html { redirect_to @table, notice: 'Table was successfully created.' }
        format.json { render :show, status: :created, location: @table }
      else

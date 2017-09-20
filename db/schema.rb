@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919155554) do
+ActiveRecord::Schema.define(version: 20170919202145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,24 @@ ActiveRecord::Schema.define(version: 20170919155554) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "game_masters", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "table_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.bigint "table_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "game_master", default: false, null: false
+    t.index ["table_id"], name: "index_invitations_on_table_id"
+    t.index ["user_id", "table_id"], name: "by_table_and_user", unique: true
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.bigint "table_id"
     t.bigint "user_id"
@@ -46,16 +64,6 @@ ActiveRecord::Schema.define(version: 20170919155554) do
     t.datetime "updated_at", null: false
     t.index ["table_id"], name: "index_messages_on_table_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "table_users", force: :cascade do |t|
-    t.bigint "table_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["table_id"], name: "index_table_users_on_table_id"
-    t.index ["user_id", "table_id"], name: "by_table_and_user", unique: true
-    t.index ["user_id"], name: "index_table_users_on_user_id"
   end
 
   create_table "tables", force: :cascade do |t|
@@ -83,8 +91,8 @@ ActiveRecord::Schema.define(version: 20170919155554) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "invitations", "tables"
+  add_foreign_key "invitations", "users"
   add_foreign_key "messages", "tables"
   add_foreign_key "messages", "users"
-  add_foreign_key "table_users", "tables"
-  add_foreign_key "table_users", "users"
 end

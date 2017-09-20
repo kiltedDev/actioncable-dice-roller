@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe TableUser, type: :model do
-  context "#table_users" do
+RSpec.describe Invitation, type: :model do
+  context "#invitations" do
     it { should have_valid(:table_id).when(1, 3, 5)}
     it { should_not have_valid(:table_id).when(nil, "")}
 

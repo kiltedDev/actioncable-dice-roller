@@ -1,4 +1,4 @@
-class TableUser < ApplicationRecord
+class Invitation < ApplicationRecord
   belongs_to :table
   belongs_to :user
 

@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<% if user_signed_in? %>
 <h1>Tables</h1>
 
 <table>
@@ -11,14 +12,11 @@
   </thead>
 
   <tbody>
-    <% @tables.each do |table| %>
+    <% current_user.tables .each do |table| %>
       <tr>
         <td><%= table.name %></td>
         <td><%= link_to 'Show', table %></td>
-        <td><%= link_to 'Edit', edit_table_path(table) %></td>
-        <td><%= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to "Join", table_table_users_path(table), method: :post %></td>
-        <td><%= link_to "Leave", table_table_users_path(table), method: :delete %></td>
+        <td><%= link_to "Leave", table_invitations_path(table), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,3 +25,4 @@
 <br>
 
 <%= link_to 'New Table', new_table_path %>
+<% end %>

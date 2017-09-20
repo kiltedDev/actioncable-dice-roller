@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :table_user do
+  factory :invitation do
     table nil
     user nil
   end

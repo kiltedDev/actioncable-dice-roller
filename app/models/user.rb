@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :table_users
-  has_many :tables, through: :table_users
+  has_many :invitations
+  has_many :tables, through: :invitations
   has_many :messages
   has_many :die_rolls
 
