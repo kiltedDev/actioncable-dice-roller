@@ -21,13 +21,14 @@ class TablesController < ApplicationController
    respond_to do |format|
      if @table.save
        @table.invitations.where(user_id: current_user.id).first_or_create
-       format.html { redirect_to @table, notice: 'Table was successfully created.' }
-       format.json { render :show, status: :created, location: @table }
+       format.html { redirect_to new_table_invitations_path(@table), notice: 'Table was successfully created.' }
+       format.json { render :new, status: :created, location: table_invitations_path(@table) }
      else
        format.html { render :new }
        format.json { render json: @table.errors, status: :unprocessable_entity }
      end
    end
+
  end
 
  private

@@ -7,6 +7,9 @@ RSpec.describe Invitation, type: :model do
 
     it { should have_valid(:user_id).when(1, 3, 5)}
     it { should_not have_valid(:user_id).when(nil, "")}
+
+    it { should have_valid(:game_master).when(true, false)}
+    it { should_not have_valid(:game_master).when(nil, "")}
   end
 
   context "#associations" do

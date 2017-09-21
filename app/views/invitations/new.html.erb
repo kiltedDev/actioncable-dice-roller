@@ -1,0 +1,14 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h2><%= link_to @table.name, table_path(@table) %></h2>
+<ul><h5>Uninvited Players</h5>
+<% @users.each do |user| %>
+  <% if @table.users.include?(user) == false %>
+    <li><%= link_to user.username, table_invitations_path(user_id: user.id), method: :post %><li>
+  <% end %>
+<% end %>
+</ul>

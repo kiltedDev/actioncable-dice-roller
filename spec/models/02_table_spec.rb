@@ -11,5 +11,6 @@ RSpec.describe Table, type: :model do
   context "associations" do
     it { should have_many :users }
     it { should have_many :messages }
+    it { should have_one :game_master }
   end
 end

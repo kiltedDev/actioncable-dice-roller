@@ -4,4 +4,5 @@ class Invitation < ApplicationRecord
 
   validates_presence_of :user_id
   validates_presence_of :table_id
+  validates_inclusion_of :game_master, in: [true, false]
 end

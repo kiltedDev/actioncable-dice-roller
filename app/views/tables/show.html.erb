@@ -1,5 +1,7 @@
 <div class="title-bar ten columns">
-  <p><strong> Name: </strong><%= @table.name %></p>
+  <div class="alignleft"><strong> Name: </strong><%= @table.name %></div>
+  <div class="alignright"><%= @table.game_master.username %><strong> :GM </strong></div>
+  <div class="clear"></div>
 </div>
 
 <div class="message-box ten columns">
@@ -22,14 +24,14 @@
         </div>
       <% end %>
 
-      <%= f.text_field :bonus, placeholder: "Bonus" %>
+      <%= f.text_field :bonus, autocomplete: "off", placeholder: "Bonus" %>
       <%= f.submit "Roll'em!" %>
     <% end %>
   </div>
 
   <div class="message-form-box twelve columns">
       <%= form_for [@table, Message.new], remote: true do |f| %>
-      <%= f.text_field :body, rows: 1, autofocus: true %>
+      <%= f.text_field :body, autocomplete: "off", autofocus: true %>
       <% end %>
     </div>
 </div>
