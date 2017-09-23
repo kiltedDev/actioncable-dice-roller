@@ -23,7 +23,7 @@ class SavedRollsController < ApplicationController
   end
 
   def set_roll
-    @roll = SavedRoll.find(:saved_roll_id)
+    @roll = SavedRoll.find(params[:id])
   end
 
   def roll_params
