@@ -9,7 +9,7 @@ feature 'user invites a player', %Q{
     navi = FactoryGirl.create(:user)
     link = FactoryGirl.create(:user, :link)
     kokiri = FactoryGirl.create(:table)
-    home = FactoryGirl.create(:invitation, user: navi, table: kokiri)
+    home = FactoryGirl.create(:invitation, user: navi, game_master: navi, table: kokiri)
 
     login_as(navi, :scope => :user)
 

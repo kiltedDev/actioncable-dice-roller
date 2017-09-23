@@ -17,9 +17,10 @@ feature 'creates a saved roll', %Q{
     click_link "New Saved Roll"
 
     expect(page).to have_content("New Saved Roll")
-    expect(page).to have_css("input#dice_count")
-    expect(page).to have_css("input#die_size")
-    expect(page).to have_css("input#bonus")
+    expect(page).to have_css("input#saved_roll_name")
+    expect(page).to have_css("select#saved_roll_dice_count")
+    expect(page).to have_css("input#saved_roll_die_size_4")
+    expect(page).to have_css("input#saved_roll_bonus")
   end
 
   scenario 'creates a roll from the edit user page' do
@@ -28,10 +29,17 @@ feature 'creates a saved roll', %Q{
 
     login_as(navi, :scope => :user)
 
-    visit edit_user_registration_path(navi)
+    visit new_user_saved_roll_path(navi)
 
-    click_link "New Saved Roll"
+    fill_in "Bonus", with: "Pester Link"
+    select(5, :from => "Dice Count")
+    choose "saved_roll_die_size_6"
+    fill_in "Bonus", with: 10
 
+    click_button "Save Roll"
 
+    expect(navi.saved_rolls.first.dice_count).to eq(5)
+    expect(navi.saved_rolls.first.die_size).to eq(6)
+    expect(navi.saved_rolls.first.bonus).to eq(10)
   end
 end

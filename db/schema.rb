@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921185722) do
+ActiveRecord::Schema.define(version: 20170923163620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 20170921185722) do
     t.datetime "updated_at", null: false
     t.index ["table_id"], name: "index_messages_on_table_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "saved_rolls", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "dice_count", null: false
+    t.integer "die_size", null: false
+    t.integer "bonus"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name", default: "fireball", null: false
   end
 
   create_table "tables", force: :cascade do |t|

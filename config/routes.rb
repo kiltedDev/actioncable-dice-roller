@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :die_rolls
   end
 
-  resources :users, only: [:index]
+  resources :users, only: [:index] do
+    resources :saved_rolls
+  end
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

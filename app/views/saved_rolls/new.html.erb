@@ -1,0 +1,30 @@
+<div class="title-bar ten columns">
+  <div class="alignleft"><strong> New Saved Roll </strong></div>
+  <div class="alignright"><strong> ^Notes </strong></div>
+  <div class="clear"></div>
+</div>
+
+<div class="message-box ten columns">
+  <%= form_for [@user, SavedRoll.new] do |f| %>
+    <div class="six columns">
+      <%= f.label :dice_count, "Dice Count" %>
+      <%= f.select(:dice_count, @roll_limit.map { |dice_pool| [ dice_pool, dice_pool ] }) %>
+    </div>
+    <div class="six columns">
+      <%= f.label :name, "Roll Name" %>
+
+      <%= f.text_field :name, autofocus: true, autocomplete: "off", placeholder: "Fireball" %>
+    </div>
+
+    <div class="favorite-roll-box">
+      <%= f.collection_radio_buttons(:die_size,  @die_sizes, :first, :last, checked: 20) do |b| %>
+        <div class="six columns">
+          <%= b.label { image_tag("#{b.text}") + b.radio_button } %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= f.text_field :bonus, autocomplete: "off", placeholder: "Bonus" %>
+    <%= f.submit "Save Roll" %>
+  <% end %>
+</div>
