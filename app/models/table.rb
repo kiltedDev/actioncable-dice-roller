@@ -8,6 +8,7 @@ class Table < ApplicationRecord
   through: :game_master_invitation,
   source: :user
   has_many :messages
+  has_many :die_rolls
 
   validates_presence_of :name
 end

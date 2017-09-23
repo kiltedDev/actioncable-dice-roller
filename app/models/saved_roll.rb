@@ -1,0 +1,2 @@
+class SavedRoll < ApplicationRecord
+end

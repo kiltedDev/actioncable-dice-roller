@@ -3,10 +3,11 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :authenticate_user!
   before_action :set_roll_limit
-  before_action :set_die_sizes
+  before_action :set_die_info
 
-  @dice_set = DiceSet.first
+
 
   protected
 
@@ -14,21 +15,25 @@ class ApplicationController < ActionController::Base
     @roll_limit = [*1..40]
   end
 
-  def set_die_sizes
-    @dice_set = DiceSet.first
-    @die_sizes = [
-      ["4", @dice_set[:d4_url]],
-      ["6", @dice_set[:d6_url]],
-      ["8", @dice_set[:d8_url]],
-      ["10", @dice_set[:d10_url]],
-      ["100", @dice_set[:d100_url]],
-      ["12", @dice_set[:d12_url]],
-      ["20", @dice_set[:d20_url]]
-    ]
+  def set_die_info
+    @dice_sets = DiceSet.all
+    if user_signed_in?
+      @dice_set = DiceSet.find(current_user.favorite_dice)
+      @die_sizes = [
+        ["4", @dice_set[:d4_url]],
+        ["6", @dice_set[:d6_url]],
+        ["8", @dice_set[:d8_url]],
+        ["10", @dice_set[:d10_url]],
+        ["100", @dice_set[:d100_url]],
+        ["12", @dice_set[:d12_url]],
+        ["20", @dice_set[:d20_url]]
+      ]
+    end
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username])
+    added_attributes = [:username, :favorite_dice]
+    devise_parameter_sanitizer.permit(:sign_up, keys: added_attributes)
+    devise_parameter_sanitizer.permit(:account_update, keys: added_attributes)
   end
 end

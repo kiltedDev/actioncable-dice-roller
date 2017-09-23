@@ -1,28 +1,39 @@
-<p id="notice"><%= notice %></p>
-
+<div class="title-bar ten columns">
+  <div class="alignleft"><strong>Tables</strong></div>
+  <div class="alignright"><strong> ^ Notes </strong></div>
+  <div class="clear"></div>
+</div>
 <% if user_signed_in? %>
-<h1>Tables</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% current_user.tables .each do |table| %>
+<div class="message-box twelve columns">
+  <table>
+    <thead>
       <tr>
-        <td><%= table.name %></td>
-        <td><%= link_to 'Show', table %></td>
-        <td><%= link_to "Leave", table_invitations_path(table), method: :delete %></td>
+        <th>Name</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% current_user.tables .each do |table| %>
+        <tr>
+          <td><%= table.name %></td>
+          <td><%= link_to 'Show', table %></td>
+          <td><%= link_to "Leave", table_invitations_path(table), method: :delete %></td>
+          <% if current_user = table.game_master %>
+            <td><%= link_to "Invitations", new_table_invitations_path(table) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Table', new_table_path %>
-<% end %>
+  <br>
+
+  <%= link_to 'New Table', new_table_path %>
+  <% else %>
+  <div class="login-request">
+    <h5>Salutations!  Please take a moment to sign in.</h5>
+  </div>
+  <% end %>
+</div>

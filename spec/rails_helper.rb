@@ -7,6 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require "capybara/rails"
 require "valid_attribute"
+require 'capybara/poltergeist'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -32,7 +33,6 @@ RSpec.configure do |config|
 
   config.include Capybara::DSL
   config.include Warden::Test::Helpers
-
 
   config.after :each do
     Warden.test_reset!
@@ -69,9 +69,6 @@ RSpec.configure do |config|
   config.before :each do
     gemini = FactoryGirl.create(:dice_set)
   end
-end
-
-RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

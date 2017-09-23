@@ -9,4 +9,8 @@ FactoryGirl.define do
     d12_url "https://www.awesomedice.com/image/cache/data/d12-gemini-black-purple-dice-215x215.jpg"
     d20_url "https://www.awesomedice.com/image/cache/data/d20-gemini-black-purple-dice-215x215.jpg"
   end
+
+  trait :fire do
+    name "Fire"
+  end
 end

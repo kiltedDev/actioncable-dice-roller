@@ -473,7 +473,7 @@
     bottom: 0vh;
     height: 79vh;
     margin: 0;
-    background: green;
+    background: white;
     display: inline-block;
   }
   .dice-box input[type="radio"] {
@@ -486,7 +486,7 @@
     width: 10vw;
   }
   .dice-box img {
-    width: 6vw;
+    width: 8vh;
   }
   .alignleft {
     float: left;
@@ -496,4 +496,14 @@
   }
   .clear {
     clear: both;
+  }
+  .favorite-dice-box  {
+    margin-left: 10px;
+  }
+  .favorite-dice-box img {
+    width: 8vh;
+    float: left;
+  }
+  .favorite-dice-box label {
+    display: inline-block;
   }

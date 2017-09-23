@@ -1,14 +1,16 @@
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="title-bar ten columns">
+  <div class="alignleft"><strong> Name: </strong><%= @table.name %></div>
+  <div class="alignright"><%= @table.game_master.username %><strong> :GM </strong></div>
+  <div class="clear"></div>
+</div>
 
-<h2><%= link_to @table.name, table_path(@table) %></h2>
-<ul><h5>Uninvited Players</h5>
-<% @users.each do |user| %>
-  <% if @table.users.include?(user) == false %>
-    <li><%= link_to user.username, table_invitations_path(user_id: user.id), method: :post %><li>
+<div class="message-box ten columns">
+  <h2><%= link_to @table.name, table_path(@table) %></h2>
+  <ul><h5>Uninvited Players</h5>
+  <% @users.each do |user| %>
+    <% if @table.users.include?(user) == false %>
+      <li><%= link_to user.username, table_invitations_path(user_id: user.id), method: :post %><li>
+    <% end %>
   <% end %>
-<% end %>
-</ul>
+  </ul>
+</div>

@@ -36,5 +36,6 @@ RSpec.describe User, type: :model do
   context "#associations" do
     it { should have_many :tables }
     it { should have_many :messages }
+    it { should have_many :die_rolls }
   end
 end

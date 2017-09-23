@@ -3,18 +3,20 @@ class DieRollsController < ApplicationController
   before_action :set_table, only: [:create, :new]
 
   def create
+    binding.pry
     roll_result = 0
     dice_results = ""
     dice_count = die_roll_params[:dice_count].to_i
     die_size = die_roll_params[:die_size].to_i
     roll_bonus = die_roll_params[:bonus].to_i
+
     dice_count.times do
       die_result = 1 + rand(die_size)
       roll_result += die_result
       dice_results += "#{die_result} "
     end
-
     roll_result += roll_bonus
+
     if roll_bonus != 0
       roll_declaration = "rolled #{dice_count}d#{die_size} plus #{roll_bonus} and got #{roll_result}"
     else
@@ -31,6 +33,11 @@ class DieRollsController < ApplicationController
     die_roll.user = current_user
     die_roll.save
     MessageRelayJob.perform_later(die_roll)
+    binding.pry
+  end
+
+  def index
+    binding.pry
   end
 
   private
