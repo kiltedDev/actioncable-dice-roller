@@ -29,7 +29,7 @@ feature 'creates a saved roll', %Q{
 
     login_as(navi, :scope => :user)
 
-    visit new_user_saved_roll_path(navi)
+    visit new_player_saved_roll_path(navi)
 
     fill_in "Bonus", with: "Pester Link"
     select(5, :from => "Dice Count")

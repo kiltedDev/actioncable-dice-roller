@@ -355,7 +355,8 @@
         0,
         0
       ],
-      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/controllers/users_controller.rb": [
+      "/Users/twilson.spqr/challenges/launch-breakable-toy/dice-roller/app/controllers/players_controller.rb": [
+        0,
         0,
         0,
         0,
@@ -390,6 +391,6 @@
         0
       ]
     },
-    "timestamp": 1506187398
+    "timestamp": 1506192213
   }
 }

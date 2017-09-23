@@ -67,15 +67,15 @@
       <% current_user.saved_rolls .each do |roll| %>
         <tr>
           <td><%= roll.name %></td>
-          <td><%= link_to 'Edit', edit_user_saved_roll_path(user_id: current_user.id, id: roll.id) %></td>
-          <td><%= link_to "Destroy", user_saved_rolls_path(roll), method: :delete %></td>
+          <td><%= link_to 'Edit', edit_player_saved_roll_path(player_id: current_user.id, id: roll.id) %></td>
+          <td><%= link_to "Destroy", player_saved_rolls_path(roll), method: :delete %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
   <% if current_user.saved_rolls.count < 4 %>
-    <%= link_to "New Saved Roll", new_user_saved_roll_path(current_user) %>
+    <%= link_to "New Saved Roll", new_player_saved_roll_path(current_user) %>
   <% end %>
 
   <h3>Cancel my account</h3>

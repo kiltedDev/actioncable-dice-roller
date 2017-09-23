@@ -5,7 +5,7 @@
 </div>
 
 <div class="message-box ten columns">
-  <%= form_for [@user, SavedRoll.new] do |f| %>
+  <%= form_for [@user, SavedRoll.new], url: player_saved_rolls_path do |f| %>
     <div class="six columns">
       <%= f.label :dice_count, "Dice Count" %>
       <%= f.select(:dice_count, @roll_limit.map { |dice_pool| [ dice_pool, dice_pool ] }) %>

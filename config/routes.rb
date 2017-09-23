@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :die_rolls
   end
 
-  resources :users, only: [:index] do
+  resources :players, only: [:index] do
     resources :saved_rolls
   end
 
