@@ -8,53 +8,53 @@
 
 gemini = DiceSet.create(
   name: "Gemini",
-  d4_url: "https://www.awesomedice.com/image/cache/data/d4-gemini-black-purple-dice-215x215.jpg",
-  d6_url: "https://www.awesomedice.com/image/cache/data/d6-gemini-black-purple-dice-215x215.jpg",
-  d8_url: "https://www.awesomedice.com/image/cache/data/d8-gemini-black-purple-dice-215x215.jpg",
-  d10_url: "https://www.awesomedice.com/image/cache/data/d10-gemini-black-purple-dice-215x215.jpg",
-  d100_url: "https://www.awesomedice.com/image/cache/data/dpercentile-gemini-black-purple-dice-215x215.jpg",
-  d12_url: "https://www.awesomedice.com/image/cache/data/d12-gemini-black-purple-dice-215x215.jpg",
-  d20_url: "https://www.awesomedice.com/image/cache/data/d20-gemini-black-purple-dice-215x215.jpg"
+  d4_url: "gemini-d4",
+  d6_url: "gemini-d6",
+  d8_url: "gemini-d8",
+  d10_url: "gemini-d10",
+  d100_url: "gemini-d100",
+  d12_url: "gemini-d12",
+  d20_url: "gemini-d20"
 )
 fire = DiceSet.create(
   name: "Fire",
-  d4_url: "https://www.awesomedice.com/image/cache/data/Singles/d4/d4-scarab-scarlet-600x600.jpg",
-  d6_url: "https://www.awesomedice.com/image/cache/data/Singles/d6/d6-scarab-scarlet-600x600.jpg",
-  d8_url: "https://www.awesomedice.com/image/cache/data/Singles/d8/d8-scarab-scarlet-600x600.jpg",
-  d10_url: "https://www.awesomedice.com/image/cache/data/Singles/d10/d10-scarab-scarlet-600x600.jpg",
-  d100_url: "https://www.awesomedice.com/image/cache/data/Singles/d10%20Percent/percentile-scarab-scarlet-350x350.jpg",
-  d12_url: "https://www.awesomedice.com/image/cache/data/Singles/d12/d12-scarab-scarlet-600x600.jpg",
-  d20_url: "https://www.awesomedice.com/image/cache/data/Singles/d20/d20-scarab-scarlet-600x600.jpg"
+  d4_url: "fire-d4",
+  d6_url: "fire-d6",
+  d8_url: "fire-d8",
+  d10_url: "fire-d10",
+  d100_url: "fire-d100",
+  d12_url: "fire-d12",
+  d20_url: "fire-d20"
 )
 water = DiceSet.create(
   name: "Water",
-  d4_url: "https://www.awesomedice.com/image/cache/data/d4-gemini-black-shell-dice-215x215.jpg",
-  d6_url: "https://www.awesomedice.com/image/cache/data/d6-gemini-black-shell-dice-215x215.jpg",
-  d8_url: "https://www.awesomedice.com/image/cache/data/d8-gemini-black-shell-dice2-215x215.jpg",
-  d10_url: "https://www.awesomedice.com/image/cache/data/d10-gemini-black-shell-dice-215x215.jpg",
-  d100_url: "https://www.awesomedice.com/image/cache/data/d10p-gemini-black-shell-dice-215x215.jpg",
-  d12_url: "https://www.awesomedice.com/image/cache/data/d12-gemini-black-shell-dice-215x215.jpg",
-  d20_url: "https://www.awesomedice.com/image/cache/data/d20-gemini-black-shell-dice-215x215.jpg"
+  d4_url: "water-d4",
+  d6_url: "water-d6",
+  d8_url: "water-d8",
+  d10_url: "water-d10",
+  d100_url: "water-d100",
+  d12_url: "water-d12",
+  d20_url: "water-d20"
 )
 earth = DiceSet.create(
   name: "Earth",
-  d4_url: "https://www.awesomedice.com/image/cache/data/d4-speckled-golden-recon-dice-215x215.jpg",
-  d6_url: "https://www.awesomedice.com/image/cache/data/d6-speckled-golden-recon-dice-215x215.jpg",
-  d8_url: "https://www.awesomedice.com/image/cache/data/d8-speckled-golden-recon-dice-215x215.jpg",
-  d10_url: "https://www.awesomedice.com/image/cache/data/d10-speckled-golden-recon-215x215.jpg",
-  d100_url: "https://www.awesomedice.com/image/cache/data/dpercentile-speckled-golden-recon-dice-215x215.jpg",
-  d12_url: "https://www.awesomedice.com/image/cache/data/d12-speckled-golden-recon-dice-215x215.jpg",
-  d20_url: "https://www.awesomedice.com/image/cache/data/d20-speckled-golden-recon-dice-215x215.jpg"
+  d4_url: "water-d4",
+  d6_url: "water-d6",
+  d8_url: "water-d8",
+  d10_url: "water-d10",
+  d100_url: "water-d100",
+  d12_url: "water-d12",
+  d20_url: "water-d20"
 )
 air = DiceSet.create(
   name: "Air",
-  d4_url: "https://www.awesomedice.com/image/cache/data/Singles/d4/d4-gemini-copper-steel-215x215.jpg",
-  d6_url: "https://www.awesomedice.com/image/cache/data/Singles/d6/d6-gemini-copper-steel-215x215.jpg",
-  d8_url: "https://www.awesomedice.com/image/cache/data/Singles/d8/d8-gemini-copper-steel-215x215.jpg",
-  d10_url: "https://www.awesomedice.com/image/cache/data/Singles/d10/d10-gemini-copper-steel-215x215.jpg",
-  d100_url: "https://www.awesomedice.com/image/cache/data/Singles/d10%20Percent/percentile-gemini-copper-steel-215x215.jpg",
-  d12_url: "https://www.awesomedice.com/image/cache/data/Singles/d12/d12-copper-steel-215x215.jpg",
-  d20_url: "https://www.awesomedice.com/image/cache/data/Singles/d20/d20-gemini-copper-steel-215x215.jpg"
+  d4_url: "air-d4",
+  d6_url: "air-d6",
+  d8_url: "air-d8",
+  d10_url: "air-d10",
+  d100_url: "air-d100",
+  d12_url: "air-d12",
+  d20_url: "air-d20"
 )
 
 navi = User.create(

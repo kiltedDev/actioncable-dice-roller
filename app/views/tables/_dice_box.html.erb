@@ -1,11 +1,11 @@
 <div class="dice-box two columns">
   <%= form_for [@table, DieRoll.new], remote: true do |f| %>
-    <div class="six columns">
+    <div class="six columns dice-tile">
       <%= f.select(:dice_count, @roll_limit.map { |dice_pool| [ dice_pool, dice_pool ] }) %>
     </div>
 
     <%= f.collection_radio_buttons(:die_size,  @die_sizes, :first, :last, checked: 20) do |b| %>
-      <div class="six columns">
+      <div class="six columns dice-tile">
         <%= b.label { image_tag("#{b.text}") + b.radio_button } %>
       </div>
     <% end %>

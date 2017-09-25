@@ -9,34 +9,33 @@
   </head>
 
   <body>
-    <ul class="navbar">
-      <% if user_signed_in? %>
-        <%= yield :right_nav %>
-
-        <li>
-          <a href="#"><%= current_user.username %></a>
-          <%= link_to "Settings", edit_user_registration_path %>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-          <%= link_to "Home", tables_path %>
-        </li>
-      <% else %>
-        <li><%= link_to "Log In", new_user_session_path %></li>
-      <% end %>
-    </ul>
+    <nav>
+      <div id="wrapper">
+        <input type="checkbox" id="menu" name="menu" class="menu-checkbox">
+        <div class="menu">
+          <ul>
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to current_user.username, player_path(current_user) %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+                <%= link_to "Tables", tables_path %>
+                <%= link_to "Settings", edit_user_registration_path %>
+              </li>
+            <% else %>
+              <li><%= link_to "Log In", new_user_session_path %></li>
+            <% end %>
+          </ul>
+          <div class="pull-tab">
+            <label class="menu-title" for="menu"><span>Roll for Initiative</label>
+            <label class="menu-toggle" for="menu"><span>Notes</span></label>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </nav>
     <div>
       <div class="row">
-        <div class="sidebar-left two columns">
-          <% if user_signed_in? %>
-            <h5>Tables</h5>
-            <ul>
-              <% current_user.tables .each do |table| %>
-              <li><%= link_to table.name, table, data: { behavior: "table-link", table_id: table.id } %></li>
-              <% end %>
-            </ul>
-          <% end %>
-        </div>
-
-        <div class="view-port ten columns">
+        <div class="view-port">
           <% if flash.any? %>
           <div class="flash">
             <div>

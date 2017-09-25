@@ -1,7 +1,8 @@
 class SavedRollsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:create, :new]
-  before_action :set_roll, only: [:edit, :update]
+  before_action :set_user, only: [:create, :new, :edit, :update, :destroy]
+  before_action :roll_params, only: [:create, :update]
+  before_action :set_roll, only: [:edit, :update, :destroy]
 
   def new
   end
@@ -16,14 +17,25 @@ class SavedRollsController < ApplicationController
   def edit
   end
 
+  def update
+    @roll.update(roll_params)
+
+    redirect_to player_path(@player)
+  end
+
+  def destroy
+    @roll.destroy
+    redirect_to player_path(@player)
+  end
+
   private
 
   def set_user
-    @user = current_user
+    @player = current_user
   end
 
   def set_roll
-    @roll = SavedRoll.find(:saved_roll_id)
+    @roll = SavedRoll.find(params[:id])
   end
 
   def roll_params

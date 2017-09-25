@@ -21,6 +21,9 @@
 
  /* Grid
  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+ @import url(https://fonts.googleapis.com/css?family=Indie+Flower|Permanent+Marker);
+ @import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
+
  .container {
    position: relative;
    width: 100%;
@@ -114,12 +117,18 @@
  html {
    font-size: 62.5%; }
  body {
+   height: 100vh;
    font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
    line-height: 1.6;
    font-weight: 400;
-   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-   color: #222; }
+   font-family: 'Indie Flower', cursive;
+   color: #222;
+   background: radial-gradient(#087129 5%, #076725 10%, #076324 70%);
 
+ }
+ Strong {
+   font-family: 'Permanent Marker', cursive;
+ }
 
  /* Typography
  –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -269,7 +278,6 @@
  fieldset {
    padding: 0;
    border-width: 0; }
- input[type="checkbox"],
  input[type="radio"] {
    display: inline; }
  label > .label-body {
@@ -409,7 +417,9 @@
 
  /* Larger than Desktop HD */
  @media (min-width: 1200px) {}
-
+ html, body {
+   height: 100vh;
+ }
   .navbar {
    height: 10vh;
    width: 100vw;
@@ -419,6 +429,71 @@
    z-index: 5;
    margin: 0;
   //  background-color: #fff;
+  }
+  #wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 300;
+  }
+  li {
+    list-style: none;
+  }
+  label {
+    cursor: pointer;
+  }
+  label:focus {
+    outline: none;
+  }
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url("navbar3.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    min-width: 100vw;
+    height: 150px;
+    transform: translate3d(0, -55px, 0);
+    transition: transform 0.35s;
+    pointer-events: auto;
+    color: black;
+  }
+  .menu label.menu-toggle {
+    position: fixed;
+    right: 80px;
+    width: 60px;
+    height: 60px;
+    line-height: 0px;
+    display: block;
+    padding: 0;
+    pointer-events: auto;
+  }
+  .menu ul {
+    list-style: none;
+    padding-left: 50px;
+  }
+  .menu ul li a, .menu ul li label {
+    padding-left: 40px;
+    line-height: 60px;
+    text-decoration: none;
+    color: #000;
+  }
+  .menu ul li a:hover, .menu ul li label:hover {
+    color: #665;
+  }
+  /* hide inputs */
+  .menu-checkbox { display: none; }
+  /* fade in checked menu */
+  .menu-checkbox:checked + .menu {
+    transform: translate3d(0, -5px, 0);
+  }
+  .menu .pull-tab {
+    width: 80vw;
+    margin: auto;
   }
   .sidebar-left {
    height: 90vh;
@@ -443,8 +518,7 @@
     position: fixed;
     top: 10vh;
     width: 100%;
-    background-color: red;
-    color: #fff;
+    color: #000;
     z-index: 4;
   }
   .messages {
@@ -462,7 +536,6 @@
     width: 70%;
     margin-top: 2px;
     margin-bottom: 2px;
-    background-color: white;
   }
   input[type="text"] {
     width: 70%;
@@ -473,8 +546,8 @@
     bottom: 0vh;
     height: 79vh;
     margin: 0;
-    background: white;
     display: inline-block;
+    min-width: 18vh;
   }
   .dice-box input[type="radio"] {
     display:none;
@@ -487,6 +560,8 @@
   }
   .dice-box img {
     width: 8vh;
+    height: 8vh;
+    display: inline-block;
   }
   .alignleft {
     float: left;

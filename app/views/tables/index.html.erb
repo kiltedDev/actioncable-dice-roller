@@ -20,7 +20,7 @@
           <td><%= table.name %></td>
           <td><%= link_to 'Show', table %></td>
           <td><%= link_to "Leave", table_invitations_path(table), method: :delete %></td>
-          <% if current_user = table.game_master %>
+          <% if current_user.invitations.where(table_id: table.id)[0].game_master %>
             <td><%= link_to "Invitations", new_table_invitations_path(table) %></td>
           <% end %>
         </tr>

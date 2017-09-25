@@ -3,7 +3,6 @@ class DieRollsController < ApplicationController
   before_action :set_table, only: [:create, :new]
 
   def create
-    binding.pry
     roll_result = 0
     dice_results = ""
     dice_count = die_roll_params[:dice_count].to_i
@@ -33,7 +32,6 @@ class DieRollsController < ApplicationController
     die_roll.user = current_user
     die_roll.save
     MessageRelayJob.perform_later(die_roll)
-    binding.pry
   end
 
   def index
