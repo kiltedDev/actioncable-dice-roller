@@ -4,7 +4,7 @@ class TablesController < ApplicationController
 
 
   def index
-    @tables = Table.all
+    @tables = current_user.tables
   end
 
   def new

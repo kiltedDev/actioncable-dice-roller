@@ -3,27 +3,7 @@
 <% if user_signed_in? %>
 
 <div class="message-box twelve columns">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% current_user.tables .each do |table| %>
-        <tr>
-          <td><%= table.name %></td>
-          <td><%= link_to 'Show', table %></td>
-          <td><%= link_to "Leave", table_invitations_path(table), method: :delete %></td>
-          <% if current_user.invitations.where(table_id: table.id)[0].game_master %>
-            <td><%= link_to "Invitations", new_table_invitations_path(table) %></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <%= react_component("IndexPage", props: { tables: @tables}, prerender: false) %>
 
   <br>
 

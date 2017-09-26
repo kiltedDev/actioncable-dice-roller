@@ -130,7 +130,9 @@
  }
  body:before {
      background-image: url("play_mat.png");
+     background-size: cover;
      pointer-events: none;
+     height: 100%;
      top:0;
      bottom:0;
      left:0;
@@ -144,6 +146,7 @@
    font-family: 'Permanent Marker', cursive;
    font-size: 18pt;
    color: $dirty-red;
+
  }
 
  /* Typography
