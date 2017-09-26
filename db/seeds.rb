@@ -56,6 +56,16 @@ air = DiceSet.create(
   d12_url: "air-d12",
   d20_url: "air-d20"
 )
+air = DiceSet.create(
+  name: "Pink",
+  d4_url: "pank-d4",
+  d6_url: "pank-d6",
+  d8_url: "pank-d8",
+  d10_url: "pank-d10",
+  d100_url: "pank-d100",
+  d12_url: "pank-d12",
+  d20_url: "pank-d20"
+)
 
 navi = User.create(
 username: "naviFairy",

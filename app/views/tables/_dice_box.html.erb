@@ -10,7 +10,8 @@
       </div>
     <% end %>
 
-    <%= f.text_field :bonus, autocomplete: "off", placeholder: "Bonus" %>
+    <label for="die_roll_bonus"> <strong style="font-size: 14pt">Bonus:</strong></label>
+    <%= f.text_field :bonus, autocomplete: "off", class: "scrap" %>
     <%= f.submit "Roll 'em!" %>
   <% end %>
 </div>

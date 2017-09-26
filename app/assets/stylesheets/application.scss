@@ -23,6 +23,8 @@
  –––––––––––––––––––––––––––––––––––––––––––––––––– */
  @import url(https://fonts.googleapis.com/css?family=Indie+Flower|Permanent+Marker);
  @import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
+ $dirty-blue: #000066;
+ $dirty-red: #990000;
 
  .container {
    position: relative;
@@ -122,12 +124,26 @@
    line-height: 1.6;
    font-weight: 400;
    font-family: 'Indie Flower', cursive;
-   color: #222;
-   background: radial-gradient(#087129 5%, #076725 10%, #076324 70%);
+   color: #fff;
+  //  background: radial-gradient(#087129 5%, #076725 10%, #076324 70%);
 
  }
- Strong {
+ body:before {
+     background-image: url("play_mat.png");
+     pointer-events: none;
+     top:0;
+     bottom:0;
+     left:0;
+     right:0;
+     content:"";
+     position:fixed;
+     z-index:2;
+     font-size: 16pt;
+ }
+ strong {
    font-family: 'Permanent Marker', cursive;
+   font-size: 18pt;
+   color: $dirty-red;
  }
 
  /* Typography
@@ -428,7 +444,6 @@
    top: 0px;
    z-index: 5;
    margin: 0;
-  //  background-color: #fff;
   }
   #wrapper {
     position: absolute;
@@ -471,6 +486,10 @@
     display: block;
     padding: 0;
     pointer-events: auto;
+    font-size: 20px;
+  }
+  .menu label.menu-title {
+    font-size: 20px;
   }
   .menu ul {
     list-style: none;
@@ -530,6 +549,10 @@
     margin-left: 2%;
     margin-bottom: 6vh;
   }
+  .message {
+    font-size: 16pt;
+    color: $dirty-blue;
+  }
   .message-form-box {
     height: 6vh;
     bottom: 0vh;
@@ -537,8 +560,15 @@
     margin-top: 2px;
     margin-bottom: 2px;
   }
-  input[type="text"] {
+  .message-form-box input[type="text"] {
     width: 70%;
+    height: 10vh;
+    border: none;
+    background-color: transparent;
+    font-family: 'Indie Flower', cursive;
+    padding: 6px 0px 6px 25px;
+    font-size: 16pt;
+    color: $dirty-blue;
   }
   .dice-box {
     position: fixed;
@@ -555,13 +585,34 @@
   .dice-box input[type="select"] {
     display:none;
   }
+  .dice-box label {
+    display: inline-block;
+  }
   .dice-box input[type="text"] {
-    width: 10vw;
+    width: 6vw;
+    border: none;
+    background-color: transparent;
+    font-family: 'Indie Flower', cursive;
+    color: $dirty-blue;
+    font-size: 14pt;
+    padding: 6px 0px 6px 25px;
+    display: inline-block;
+    // caret-color: transparent;
   }
   .dice-box img {
-    width: 8vh;
-    height: 8vh;
+    max-width: 8vh;
+    max-height: 8vh;
     display: inline-block;
+  }
+  .dice-box input[type="submit"] {
+    width: 16vw;
+    height: 60px;
+    border: none;
+    background-color: transparent;
+    font-family: 'Indie Flower', cursive;
+    background-image: url("scrap-paper.png");
+    background-repeat: no-repeat;
+    text-align: left;
   }
   .alignleft {
     float: left;
@@ -581,4 +632,7 @@
   }
   .favorite-dice-box label {
     display: inline-block;
+  }
+  .scrap {
+    background: transparent;
   }
