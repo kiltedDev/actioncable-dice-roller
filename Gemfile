@@ -12,6 +12,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'dotenv-rails'
 gem 'devise'
 gem 'redis', '~> 3.3'
+gem 'webpacker', '~> 3.0'
+gem 'foreman'
+gem 'react_on_rails', '9.0.0'
 
 group :development do
   gem 'listen', '~> 3.0.5'
