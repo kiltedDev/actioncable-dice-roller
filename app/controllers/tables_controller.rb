@@ -4,7 +4,9 @@ class TablesController < ApplicationController
 
 
   def index
-    @tables = current_user.tables
+    if user_signed_in?
+      @tables = current_user.tables
+    end
   end
 
   def new

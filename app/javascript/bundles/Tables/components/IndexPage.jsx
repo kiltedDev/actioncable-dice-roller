@@ -15,7 +15,6 @@ class IndexPage extends Component {
           </thead>
 
           <tbody>
-            <% this.props.tables.each do |table| %>
               <tr>
                 <td>{table.name}</td>
                 <td><a href="/tables/{table.id}">Show</a></td>
