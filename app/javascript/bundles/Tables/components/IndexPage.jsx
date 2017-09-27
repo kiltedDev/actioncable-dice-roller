@@ -21,7 +21,6 @@ class IndexPage extends Component {
                 <td><a rel="nofollow" data-method="delete" href="/tables/{table.id}/invitations">Leave</a></td>
                 <td><a href="/tables/{table.id}/invitations/new">Invitations</a></td>
               </tr>
-            <% end %>
           </tbody>
         </table>
       )

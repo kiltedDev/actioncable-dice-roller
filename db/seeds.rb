@@ -38,13 +38,13 @@ water = DiceSet.create(
 )
 earth = DiceSet.create(
   name: "Earth",
-  d4_url: "water-d4",
-  d6_url: "water-d6",
-  d8_url: "water-d8",
-  d10_url: "water-d10",
-  d100_url: "water-d100",
-  d12_url: "water-d12",
-  d20_url: "water-d20"
+  d4_url: "earth-d4",
+  d6_url: "earth-d6",
+  d8_url: "earth-d8",
+  d10_url: "earth-d10",
+  d100_url: "earth-d100",
+  d12_url: "earth-d12",
+  d20_url: "earth-d20"
 )
 air = DiceSet.create(
   name: "Air",
@@ -56,7 +56,7 @@ air = DiceSet.create(
   d12_url: "air-d12",
   d20_url: "air-d20"
 )
-air = DiceSet.create(
+pank = DiceSet.create(
   name: "Pink",
   d4_url: "pank-d4",
   d6_url: "pank-d6",
@@ -67,20 +67,21 @@ air = DiceSet.create(
   d20_url: "pank-d20"
 )
 
-navi = User.create(
-username: "naviFairy",
-email: "yelling@link.com",
+hariq = User.create(
+username: "manAflame",
+email: "burning@gmail.com",
 password: "password"
 )
 
-link = User.create(
-username: "serLink",
-email: "looking@zelda.com",
+game_master = User.create(
+username: "GameMaster",
+email: "running@gmail.com",
 password: "password"
 )
 
-kokiri = Table.create(
-name: "Kokiri"
+rappanAthuk = Table.create(
+name: "Rappan Athuk"
 )
 
-home = Invitation.create(user: navi, table: kokiri, game_master: true)
+home = Invitation.create(user: game_master, table: rappanAthuk, game_master: true)
+home = Invitation.create(user: hariq, table: rappanAthuk)
