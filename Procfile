@@ -1,3 +1,4 @@
-web: redis-server
 
-web: foreman start -f Procfile.dev
+web: node server.js
+web: bundle exec puma -C config/puma.rb
+
