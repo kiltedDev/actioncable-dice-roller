@@ -8,7 +8,7 @@
     </div>
 
     <div class="twelve columns">
-      <%= react_component("IndexPage", props: { tables: @tables}, prerender: true) %>
+      <%= react_component("IndexPage", props: { tables: @tables}, prerender: false) %>
     </div>
   <% else %>
     <div class="login-request">
