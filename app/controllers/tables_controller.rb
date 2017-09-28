@@ -10,9 +10,7 @@ class TablesController < ApplicationController
   end
 
   def new
-    if user_signed_in?
-      @table = Table.new
-    end
+    @table = Table.new
   end
 
   def show
