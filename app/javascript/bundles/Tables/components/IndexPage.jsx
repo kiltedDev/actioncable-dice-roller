@@ -13,7 +13,7 @@ class IndexPage extends Component {
               <th></th>
             </tr>
           </thead>
-
+ 
           <tbody>
               <tr>
                 <td>{table.name}</td>
