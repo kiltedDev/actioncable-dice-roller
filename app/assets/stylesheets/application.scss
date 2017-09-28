@@ -582,9 +582,6 @@
     display: inline-block;
     min-width: 18vh;
   }
-  .dice-box input[type="radio"] {
-    display:none;
-  }
   .dice-box input[type="select"] {
     display:none;
   }
@@ -602,10 +599,17 @@
     display: inline-block;
     // caret-color: transparent;
   }
-  .dice-box img {
+  .dice-box input[type="radio"] {
+    display:none;
+  }
+  .dice-image {
     max-width: 8vh;
     max-height: 8vh;
     display: inline-block;
+  }
+  input[type="radio"]:checked + img.dice-image {
+   max-width: 4vh;
+   max-height: 4vh;
   }
   .dice-box input[type="submit"] {
     width: 16vw;

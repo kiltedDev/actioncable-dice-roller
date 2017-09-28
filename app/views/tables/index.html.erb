@@ -1,16 +1,18 @@
 <div class="title-bar ten columns">
 </div>
-<% if user_signed_in? %>
 
 <div class="message-box twelve columns">
-  <%= react_component("IndexPage", props: { tables: @tables}, prerender: false) %>
+  <% if user_signed_in? %>
+    <div class="twelve columns">
+      <%= link_to 'New Table', new_table_path %>
+    </div>
 
-  <br>
-
-  <%= link_to 'New Table', new_table_path %>
+    <div class="twelve columns">
+      <%= react_component("IndexPage", props: { tables: @tables}, prerender: true) %>
+    </div>
   <% else %>
-  <div class="login-request">
-    <h5>Salutations!  Please take a moment to sign in.</h5>
-  </div>
+    <div class="login-request">
+      <h5>Salutations!  Please take a moment to sign in.</h5>
+    </div>
   <% end %>
 </div>
