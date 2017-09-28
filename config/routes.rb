@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :die_rolls
   end
 
-  resources :players, only: [ :show] do
+  resources :players, only: [:show] do
     resources :saved_rolls
   end
 
