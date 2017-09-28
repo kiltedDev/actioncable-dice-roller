@@ -1,6 +1,6 @@
 development:
   adapter: redis
-  url: redis://redistogo:e1c89fd1b787c4becbf8b425cfe5fd14@koi.redistogo.com:9134/
+  url: redis://localhost:6379/1
 
 
 test:
@@ -8,5 +8,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:e1c89fd1b787c4becbf8b425cfe5fd14@koi.redistogo.com:9134/
   channel_prefix: dice-roller_production
