@@ -129,7 +129,7 @@
 
  }
  body:before {
-     background-image: url(<%= asset_path("play_mat.png") %> );
+     background-image: url("https://s3.us-east-2.amazonaws.com/roll-for-init-production/play_mat.png");
      background-size: cover;
      pointer-events: none;
      height: 100%;
@@ -469,7 +469,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-image: url(<%= asset_path("navbar3.png") %>);
+    background-image: url("https://s3.us-east-2.amazonaws.com/roll-for-init-production/navbar3.png");
     background-repeat: no-repeat;
     background-position: center;
     width: 100vw;
@@ -602,12 +602,12 @@
   .dice-box input[type="radio"] {
     display:none;
   }
-  .dice-image {
+  .dice-box img {
     max-width: 8vh;
     max-height: 8vh;
     display: inline-block;
   }
-  input[type="radio"]:checked + img.dice-image {
+  input[type="radio"]:checked + img {
    max-width: 4vh;
    max-height: 4vh;
   }
@@ -617,7 +617,7 @@
     border: none;
     background-color: transparent;
     font-family: 'Indie Flower', cursive;
-    background-image: url(<%= asset_path('scrap-paper.png')%>);
+    background-image: url('https://s3.us-east-2.amazonaws.com/roll-for-init-production/scrap-paper.png');
     background-repeat: no-repeat;
     text-align: left;
   }

@@ -41,7 +41,7 @@
     <div class=row>
       <div class="favorite-dice-box">
         <%= f.collection_radio_buttons(:favorite_dice,  @dice_sets, :id, :d6_url) do |b| %>
-            <%= b.label { image_tag("#{b.text}.png") + b.radio_button } %>
+            <%= b.label { image_tag("#{b.text}") + b.radio_button } %>
         <% end %>
       </div>
     </div>
