@@ -1,12 +1,14 @@
-development:
-  adapter: redis
-  url: redis://localhost:6379/1
-
-
-test:
-  adapter: redis
-
-production:
-  adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: dice-roller_production
+development: &development
+  :url: redis://localhost:6379
+  :host: localhost
+  :port: 6379
+  :timeout: 1
+  :inline: true
+test: *development
+production: &production
+  :url:     redis://redistogo:e1c89fd1b787c4becbf8b425cfe5fd14@koi.redistogo.com:9134
+  :host: koi.redistogo.com
+  :port: 9134
+  :password: e1c89fd1b787c4becbf8b425cfe5fd14
+  :inline: true
+  :timeout: 1
