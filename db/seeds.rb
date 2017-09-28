@@ -8,63 +8,63 @@
 
 gemini = DiceSet.create(
   name: "Gemini",
-  d4_url: "gemini-d4",
-  d6_url: "gemini-d6",
-  d8_url: "gemini-d8",
-  d10_url: "gemini-d10",
-  d100_url: "gemini-d100",
-  d12_url: "gemini-d12",
-  d20_url: "gemini-d20"
+  d4_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/gemini-d4.png",
+  d6_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/gemini-d6.png",
+  d8_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/gemini-d8.png",
+  d10_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/gemini-d10.png",
+  d100_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/gemini-d100.png",
+  d12_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/gemini-d12.png",
+  d20_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/gemini-d20.png"
 )
 fire = DiceSet.create(
   name: "Fire",
-  d4_url: "fire-d4",
-  d6_url: "fire-d6",
-  d8_url: "fire-d8",
-  d10_url: "fire-d10",
-  d100_url: "fire-d100",
-  d12_url: "fire-d12",
-  d20_url: "fire-d20"
+  d4_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/fire-d4.png",
+  d6_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/fire-d6.png",
+  d8_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/fire-d8.png",
+  d10_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/fire-d10.png",
+  d100_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/fire-d100.png",
+  d12_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/fire-d12.png",
+  d20_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/fire-d20.png"
 )
 water = DiceSet.create(
   name: "Water",
-  d4_url: "water-d4",
-  d6_url: "water-d6",
-  d8_url: "water-d8",
-  d10_url: "water-d10",
-  d100_url: "water-d100",
-  d12_url: "water-d12",
-  d20_url: "water-d20"
+  d4_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/water-d4.png",
+  d6_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/water-d6.png",
+  d8_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/water-d8.png",
+  d10_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/water-d10.png",
+  d100_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/water-d100.png",
+  d12_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/water-d12.png",
+  d20_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/water-d20.png"
 )
 earth = DiceSet.create(
   name: "Earth",
-  d4_url: "earth-d4",
-  d6_url: "earth-d6",
-  d8_url: "earth-d8",
-  d10_url: "earth-d10",
-  d100_url: "earth-d100",
-  d12_url: "earth-d12",
-  d20_url: "earth-d20"
+  d4_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/earth-d4.png",
+  d6_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/earth-d6.png",
+  d8_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/earth-d8.png",
+  d10_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/earth-d10.png",
+  d100_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/earth-d100.png",
+  d12_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/earth-d12.png",
+  d20_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/earth-d20.png"
 )
 air = DiceSet.create(
   name: "Air",
-  d4_url: "air-d4",
-  d6_url: "air-d6",
-  d8_url: "air-d8",
-  d10_url: "air-d10",
-  d100_url: "air-d100",
-  d12_url: "air-d12",
-  d20_url: "air-d20"
+  d4_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/air-d4.png",
+  d6_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/air-d6.png",
+  d8_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/air-d8.png",
+  d10_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/air-d10.png",
+  d100_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/air-d100.png",
+  d12_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/air-d12.png",
+  d20_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/air-d20.png"
 )
 pank = DiceSet.create(
   name: "Pink",
-  d4_url: "pank-d4",
-  d6_url: "pank-d6",
-  d8_url: "pank-d8",
-  d10_url: "pank-d10",
-  d100_url: "pank-d100",
-  d12_url: "pank-d12",
-  d20_url: "pank-d20"
+  d4_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/pank-d4.png",
+  d6_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/pank-d6.png",
+  d8_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/pank-d8.png",
+  d10_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/pank-d10.png",
+  d100_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/pank-d100.png",
+  d12_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/pank-d12.png",
+  d20_url: "https://s3.us-east-2.amazonaws.com/roll-for-init-production/pank-d20.png"
 )
 
 hariq = User.create(
