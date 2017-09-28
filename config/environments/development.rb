@@ -12,8 +12,6 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
-  ENV["REDISTOGO_URL"] =  "redis://redistogo:be3b20e89311ce942b455355de44a4e4@koi.redistogo.com:9134/"
-
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
