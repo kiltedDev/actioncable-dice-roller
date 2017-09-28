@@ -129,7 +129,7 @@
 
  }
  body:before {
-     background-image: url("play_mat.png");
+     background-image: url(<%= asset_path("play_mat.png") %> );
      background-size: cover;
      pointer-events: none;
      height: 100%;
@@ -469,7 +469,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-image: url("navbar3.png");
+    background-image: url(<%= asset_path("navbar3.png") %>);
     background-repeat: no-repeat;
     background-position: center;
     width: 100vw;
@@ -617,7 +617,7 @@
     border: none;
     background-color: transparent;
     font-family: 'Indie Flower', cursive;
-    background-image: url("scrap-paper.png");
+    background-image: url(<%= asset_path('scrap-paper.png')%>);
     background-repeat: no-repeat;
     text-align: left;
   }

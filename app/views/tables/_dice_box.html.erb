@@ -6,7 +6,9 @@
 
     <%= f.collection_radio_buttons(:die_size,  @die_sizes, :first, :last, checked: 20) do |b| %>
       <div class="six columns dice-tile">
-        <%= b.label { image_tag("#{b.text}", class:"dice-image", id: "die_roll_die_size_#{b.value}") + b.radio_button } %>
+        <%= b.label {
+           image_tag("#{ asset_path(b.text)}", class:"dice-image", id: "die_roll_die_size_#{b.value}") + b.radio_button 
+           } %>
       </div>
     <% end %>
 
