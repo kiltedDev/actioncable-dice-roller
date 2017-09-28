@@ -1,1 +1,3 @@
-web: bundle exec puma -p $PORT
+web: redis-server
+
+web: foreman start -f Procfile.dev
