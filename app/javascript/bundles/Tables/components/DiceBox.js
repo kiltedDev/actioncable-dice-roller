@@ -5,8 +5,6 @@ class DiceBox extends Component {
     super(props);
     this.state = {
       selectedSet: this.props.selected_set,
-      diceSets: this.props.dice_sets,
-      rollLimit: this.props.roll_limit,
       dice_count: 1,
       die_size: 20,
       bonus: "",
@@ -55,7 +53,6 @@ class DiceBox extends Component {
     this.deliverPayload(formPayload);
   }
   deliverPayload(formPayload) {
-    debugger;
     let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'})
     fetch('/tables/'+ this.props.table_id+'/die_rolls', {
       method: 'POST',
@@ -77,7 +74,7 @@ class DiceBox extends Component {
       {size: "20", image: this.state.selectedSet.d20_url, id: "die_roll_die_size_20"}
     ]
 
-    let optionElements = this.state.rollLimit.map(option =>{
+    let optionElements = this.props.roll_limit.map(option =>{
       return (
         <option key={option} value={option}>{option}</option>
       );
@@ -103,6 +100,8 @@ class DiceBox extends Component {
 
     return(
       <div className="dice-box two columns">
+
+
         <form onSubmit={this.handleSubmit}>
           <div className="six columns">
             <select id="die_roll_dice_count" className="dice-tile" onChange={this.handleCountChange} value={this.state.dice_count}>
