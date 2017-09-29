@@ -542,7 +542,7 @@
     top: 10vh;
     width: 100%;
     color: #000;
-    z-index: 4;
+    z-index: 0;
   }
   .messages {
     position: relative;
@@ -550,7 +550,6 @@
   .message-box, .IndexPage {
     position: absolute;
     top: 15vh;
-    margin-left: 2%;
     margin-bottom: 6vh;
   }
   .message {
@@ -581,13 +580,10 @@
     position: fixed;
     right: 0px;
     bottom: 0vh;
-    height: 79vh;
+    height: 89vh;
     margin: 0;
     display: inline-block;
     min-width: 18vh;
-  }
-  .dice-box input[type="select"] {
-    display:none;
   }
   .dice-box label {
     display: inline-block;
@@ -646,4 +642,9 @@
   }
   .scrap {
     background: transparent;
+  }
+  #die_roll_dice_count {
+    width: 4vh;
+    margin-left: 2vh;
+    margin-top: 1.5vh;
   }

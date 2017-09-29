@@ -7,33 +7,30 @@ class DiceBox extends Component {
       selectedSet: this.props.selected_set,
       diceSets: this.props.dice_sets,
       rollLimit: this.props.roll_limit,
+      table_id: this.props.table_id,
       dice_count: 1,
       die_size: 20,
-      bonus: null,
-      dieStats: [
-        {size: "4", image: this.state.selectedSet.d4_url, id: "die_roll_die_size_4"},
-        {size: "6", image: this.state.selectedSet.d6_url, id: "die_roll_die_size_6"},
-        {size: "8", image: this.state.selectedSet.d8_url, id: "die_roll_die_size_8"},
-        {size: "10", image: this.state.selectedSet.d10_url, id: "die_roll_die_size_10"},
-        {size: "100", image: this.state.selectedSet.d100_url, id: "die_roll_die_size_100"},
-        {size: "12", image: this.state.selectedSet.d12_url, id: "die_roll_die_size_12"},
-        {size: "20", image: this.state.selectedSet.d20_ur, id: "die_roll_die_size_20"}]
+      bonus: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCountChange = this.handleCountChange.bind(this)
+    this.handleSizeChange = this.handleSizeChange.bind(this)
+    this.handleBonusChange = this.handleBonusChange.bind(this)
+    this.clearForm = this.clearForm.bind(this)
   }
 
-  handleCountChange(e) {
-    this.setState({dice_count: e.target.value})
+  handleCountChange(event) {
+    this.setState({ dice_count: parseInt(event.target.value) })
   }
-  handleSizeChange(e) {
-    this.setState({die_size: e.target.value})
+  handleSizeChange(event) {
+    this.setState({ die_size: parseInt(event.target.id) })
   }
-  handleBonusChange(e) {
-    this.setState({bonus: e.target.value})
+  handleBonusChange(event) {
+    this.setState({ bonus: parseInt(event.target.value) })
   }
 
   clearForm(){
-    this.setState({dice_count: 1, die_size: 20, bonus: null})
+    this.setState({dice_count: 1, die_size: 20, bonus: ""})
   }
 
   handleSubmit(e) {
@@ -45,33 +42,39 @@ class DiceBox extends Component {
         bonus: this.state.bonus
       }
     }
-    fetch('/tables/'+this.state.table_id+'/die_rolls.json', {
+    let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'})
+    fetch('/tables/'+ this.state.table_id+'/die_rolls', {
       method: 'POST',
+      headers: header,
       credentials: 'same-origin',
       body: JSON.stringify(formPayload)
-    }).then(response => {
-      let newDieRoll = response.json()
-      return newDieRoll
-    }).then(newDieRoll => {
-      this.props.newDieRoll(newDieRoll, this.props.table_id)
-      this.clearForm()
     })
+    this.clearForm()
   }
 
   render() {
+    let dieStats = [
+      {size: "4", image: this.state.selectedSet.d4_url, id: "die_roll_die_size_4"},
+      {size: "6", image: this.state.selectedSet.d6_url, id: "die_roll_die_size_6"},
+      {size: "8", image: this.state.selectedSet.d8_url, id: "die_roll_die_size_8"},
+      {size: "10", image: this.state.selectedSet.d10_url, id: "die_roll_die_size_10"},
+      {size: "100", image: this.state.selectedSet.d100_url, id: "die_roll_die_size_100"},
+      {size: "12", image: this.state.selectedSet.d12_url, id: "die_roll_die_size_12"},
+      {size: "20", image: this.state.selectedSet.d20_url, id: "die_roll_die_size_20"}
+    ]
 
-    let optionElements = this.props.rollLimit.map(option =>{
+    let optionElements = this.state.rollLimit.map(option =>{
       return (
-        <option key={option[0]} value={option[0]}>{option[0]}</option>
+        <option key={option} value={option}>{option}</option>
       );
     })
 
-    let radioCollection = this.props.dieStats.map(die =>{
+    let radioCollection = dieStats.map(die =>{
       return (
-        <div class="six columns dice-tile">
-          <label for={die.id}>
-            <img src={die.image} id={die.id} >
-            <input type="radio" id={die.id} value={die.size} checked={this.state.die_size==die.value} onChange={this.handleSizeChange}>
+        <div className="six columns dice-tile">
+          <label htmlFor={die.id}>
+            <img src={die.image} id={die.size} onClick={this.handleSizeChange} />
+            <input type="radio" id={die.id} value={this.state.die_size} name="die_roll[die_size]" checked={this.state.die_size==die.size} onChange={this.handleSizeChange}/>
           </label>
         </div>
       )
@@ -80,26 +83,21 @@ class DiceBox extends Component {
     return(
       <div className="dice-box two columns">
         <form onSubmit={this.handleSubmit}>
-          <select  value=1>
-            {optionElements}
-          </select>
+          <div className="six columns">
+            <select id="die_roll_dice_count" className="dice-tile" onChange={this.handleCountChange} value={this.state.dice_count}>
+              {optionElements}
+            </select>
+          </div>
 
           {radioCollection}
 
-          <label for="die_roll_bonus"> <strong style="font-size: 14pt">Bonus:</strong>
-            <input type='text' name='bonus' autocomplete="off" className="scrap" onChange={this.handleBonusChange} />
+          <label htmlFor="die_roll_bonus"> <strong>Bonus:</strong>
+            <input type='text' name='bonus' autoComplete="off" className="scrap" onChange={this.handleBonusChange} value={this.state.bonus}/>
           </label>
-          <input type="submit" value="Roll 'em!">
+          <input type="submit" value="Roll 'em!"/>
         </form>
       </div>
     )
-  })
-
-  return (
-    <div className="diceBox">
-      {comments}
-    </div>
-  )
   }
 }
 export default DiceBox;
