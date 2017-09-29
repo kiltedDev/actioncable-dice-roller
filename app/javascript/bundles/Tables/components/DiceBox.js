@@ -7,15 +7,16 @@ class DiceBox extends Component {
       selectedSet: this.props.selected_set,
       diceSets: this.props.dice_sets,
       rollLimit: this.props.roll_limit,
-      table_id: this.props.table_id,
       dice_count: 1,
       die_size: 20,
       bonus: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.deliverPayload = this.deliverPayload.bind(this)
     this.handleCountChange = this.handleCountChange.bind(this)
     this.handleSizeChange = this.handleSizeChange.bind(this)
     this.handleBonusChange = this.handleBonusChange.bind(this)
+    this.handleSavedRoll = this.handleSavedRoll.bind(this)
     this.clearForm = this.clearForm.bind(this)
   }
 
@@ -28,7 +29,16 @@ class DiceBox extends Component {
   handleBonusChange(event) {
     this.setState({ bonus: parseInt(event.target.value) })
   }
-
+  handleSavedRoll(roll) {
+    let formPayload = {
+      die_roll: {
+        dice_count: roll.dice_count,
+        die_size: roll.die_size,
+        bonus: roll.bonus
+      }
+    }
+    this.deliverPayload(formPayload)
+  }
   clearForm(){
     this.setState({dice_count: 1, die_size: 20, bonus: ""})
   }
@@ -42,8 +52,12 @@ class DiceBox extends Component {
         bonus: this.state.bonus
       }
     }
+    this.deliverPayload(formPayload);
+  }
+  deliverPayload(formPayload) {
+    debugger;
     let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'})
-    fetch('/tables/'+ this.state.table_id+'/die_rolls', {
+    fetch('/tables/'+ this.props.table_id+'/die_rolls', {
       method: 'POST',
       headers: header,
       credentials: 'same-origin',
@@ -80,6 +94,13 @@ class DiceBox extends Component {
       )
     })
 
+    let savedRollsBox = this.props.saved_rolls.map(roll =>{
+
+      return (
+        <button  onClick={this.handleSavedRoll.bind(this, roll)}>{roll.name}</button>
+      )
+    })
+
     return(
       <div className="dice-box two columns">
         <form onSubmit={this.handleSubmit}>
@@ -96,6 +117,8 @@ class DiceBox extends Component {
           </label>
           <input type="submit" value="Roll 'em!"/>
         </form>
+
+        {savedRollsBox}
       </div>
     )
   }

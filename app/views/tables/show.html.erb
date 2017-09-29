@@ -10,7 +10,7 @@
 
   </div>
 
-  <%= react_component("DiceBox", props: { roll_limit: @roll_limit, selected_set: @selected_set, dice_sets: @dice_sets, table_id: @table.id }, prerender: false) %>
+  <%= react_component("DiceBox", props: { roll_limit: @roll_limit, selected_set: @selected_set, dice_sets: @dice_sets, table_id: @table.id, saved_rolls: current_user.saved_rolls }, prerender: false) %>
 
   <div class="message-form-box twelve columns">
     <%= form_for [@table, Message.new], remote: true do |f| %>
