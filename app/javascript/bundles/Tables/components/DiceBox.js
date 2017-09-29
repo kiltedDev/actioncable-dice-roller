@@ -4,13 +4,13 @@ class DiceBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedSet: this.props.selected_set
-      diceSets: this.props.dice_sets
-      rollLimit: this.props.roll_limit
-      dice_count: 1
-      die_size: 20
-      bonus: null
-      dieStats = [
+      selectedSet: this.props.selected_set,
+      diceSets: this.props.dice_sets,
+      rollLimit: this.props.roll_limit,
+      dice_count: 1,
+      die_size: 20,
+      bonus: null,
+      dieStats: [
         {size: "4", image: this.state.selectedSet.d4_url, id: "die_roll_die_size_4"},
         {size: "6", image: this.state.selectedSet.d6_url, id: "die_roll_die_size_6"},
         {size: "8", image: this.state.selectedSet.d8_url, id: "die_roll_die_size_8"},
@@ -18,7 +18,6 @@ class DiceBox extends Component {
         {size: "100", image: this.state.selectedSet.d100_url, id: "die_roll_die_size_100"},
         {size: "12", image: this.state.selectedSet.d12_url, id: "die_roll_die_size_12"},
         {size: "20", image: this.state.selectedSet.d20_ur, id: "die_roll_die_size_20"}]
-      ]
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -48,7 +47,7 @@ class DiceBox extends Component {
     }
     fetch('/tables/'+this.state.table_id+'/die_rolls.json', {
       method: 'POST',
-      credentials: 'same-origin'.
+      credentials: 'same-origin',
       body: JSON.stringify(formPayload)
     }).then(response => {
       let newDieRoll = response.json()
@@ -72,7 +71,7 @@ class DiceBox extends Component {
         <div class="six columns dice-tile">
           <label for={die.id}>
             <img src={die.image} id={die.id} >
-            <input type="radio" id={die.id} value={die.size} checked={this.state.die_size === die.value} onChange={this.handleSizeChange}>
+            <input type="radio" id={die.id} value={die.size} checked={this.state.die_size==die.value} onChange={this.handleSizeChange}>
           </label>
         </div>
       )

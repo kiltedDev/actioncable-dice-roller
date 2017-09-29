@@ -1,12 +1,10 @@
 <div class="title-bar ten columns">
-  <div class="alignleft"><strong> Player: </strong><%= @player.username %></div>
-  <div class="alignright"><strong> ^Notes </strong></div>
-  <div class="clear"></div>
 </div>
 
 <div class="message-box ten columns">
+  <h3><strong> Player: </strong><%= @player.username %></h3>
 
-  <h3>Saved Rolls</h3>
+  <h2>Saved Rolls</h2>
   <table>
     <thead>
       <tr>
@@ -36,6 +34,7 @@
     <%= link_to "New Saved Roll", new_player_saved_roll_path(current_user) %>
   <% end %>
 
+  <h2>Active Tables</h2>
   <table>
     <thead>
       <tr>
