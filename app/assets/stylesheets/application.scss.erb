@@ -193,7 +193,7 @@
  input[type="button"] {
    display: inline-block;
    height: 38px;
-   padding: 0 30px;
+   padding: 0 15px;
    color: #555;
    text-align: center;
    font-size: 11px;
@@ -207,7 +207,9 @@
    border-radius: 4px;
    border: 1px solid #bbb;
    cursor: pointer;
-   box-sizing: border-box; }
+   box-sizing: border-box;
+   text-align: center;
+}
  .button:hover,
  button:hover,
  input[type="submit"]:hover,
@@ -611,15 +613,17 @@
    max-width: 4vh;
    max-height: 4vh;
   }
-  .dice-box input[type="submit"] {
-    width: 16vw;
+  .dice-box input[type="submit"],
+  .dice-box button {
+    width: 140px;
     height: 60px;
     border: none;
     background-color: transparent;
     font-family: 'Indie Flower', cursive;
     background-image: url('https://s3.us-east-2.amazonaws.com/roll-for-init-production/scrap-paper.png');
     background-repeat: no-repeat;
-    text-align: left;
+    margin:auto;
+    padding-left: 0px;
   }
   .alignleft {
     float: left;
