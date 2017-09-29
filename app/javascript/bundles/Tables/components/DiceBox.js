@@ -80,12 +80,6 @@ class DiceBox extends Component {
       );
     })
 
-    let diceSets = this.props.dice_sets.map(option =>{
-      return (
-        <option key={option} value={option}>{option}</option>
-      );
-    })
-
     let radioCollection = dieStats.map(die =>{
       return (
         <div className="six columns dice-tile">
