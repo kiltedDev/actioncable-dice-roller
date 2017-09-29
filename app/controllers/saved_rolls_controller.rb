@@ -11,7 +11,7 @@ class SavedRollsController < ApplicationController
     new_roll = SavedRoll.new(roll_params)
     new_roll.user = current_user
     new_roll.save
-    redirect_to edit_user_registration_path
+    redirect_to player_path(current_user)
   end
 
   def edit
