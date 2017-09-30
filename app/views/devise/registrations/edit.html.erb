@@ -39,7 +39,7 @@
     </div>
 
     <div class=row>
-      <div class="favorite-dice-box">
+      <div class="favorite-dice-box eight columns">
         <%= f.collection_radio_buttons(:favorite_dice,  @dice_sets, :id, :d6_url) do |b| %>
             <%= b.label { image_tag("#{b.text}") + b.radio_button } %>
         <% end %>
@@ -53,7 +53,7 @@
 
   <h3>Cancel my account</h3>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Unhappy? <%= button_to "Flip Table", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
   <%= link_to "Back", :back %>
 </div>

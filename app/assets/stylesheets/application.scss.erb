@@ -126,8 +126,6 @@
    font-weight: 400;
    font-family: 'Permanent Marker';
    color: #111;
-  //  background: radial-gradient(#087129 5%, #076725 10%, #076324 70%);
-
  }
  body:before {
      background-image: url("https://s3.us-east-2.amazonaws.com/roll-for-init-production/play_mat.png");
@@ -664,12 +662,12 @@
   .favorite-dice-box img {
     width: 8vh;
     height: 8vh;
-    float: left;
+    display: inline-block;
   }
   .favorite-roll-box img {
     max-width: 8vh;
     max-height: 8vh;
-    float: left;
+    display: inline-block;
   }
   .favorite-dice-box label {
     display: inline-block;
@@ -677,8 +675,12 @@
   input.scrap {
     width: 40px;
   }
-  #die_roll_dice_count {
+  #die_roll_dice_count,
+  #saved_roll_dice_count {
     height: 25px;
     margin-left: 2vh;
     margin-top: 1.5vh;
+  }
+  #saved_roll_form {
+    min-width: 250px;
   }
