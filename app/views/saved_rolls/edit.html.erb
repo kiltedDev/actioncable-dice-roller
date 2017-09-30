@@ -1,15 +1,15 @@
-<div class="title-bar ten columns">
+<div class="title-bar nine columns">
   <div class="alignleft"><strong> Edit <%= @roll.name %> </strong></div>
   <div class="clear"></div>
 </div>
 
-<div class="message-box ten columns">
+<div class="message-box nine columns">
   <%= form_for [@player, @roll], url: player_saved_roll_path(@roll), method: :patch do |f| %>
-    <div class="six columns">
+    <div class="five columns">
       <%= f.label :dice_count, "Dice Count" %>
       <%= f.select(:dice_count, @roll_limit.map { |dice_pool| [ dice_pool, dice_pool ] }) %>
     </div>
-    <div class="six columns">
+    <div class="five columns">
       <%= f.label :name, "Roll Name" %>
 
       <%= f.text_field :name, autofocus: true, autocomplete: "off", placeholder: "Fireball" %>
@@ -17,7 +17,7 @@
 
     <div class="favorite-roll-box">
       <%= f.collection_radio_buttons(:die_size,  @die_stats, :first, :last) do |b| %>
-        <div class="six columns">
+        <div class="five columns">
           <%= b.label { image_tag("#{b.text}") + b.radio_button } %>
         </div>
       <% end %>

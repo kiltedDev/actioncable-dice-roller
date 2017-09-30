@@ -55,7 +55,8 @@
    }
    .column:first-child,
    .columns:first-child {
-     margin-left: 0; }
+    //  margin-left: 0;
+   }
 
    .one.column,
    .one.columns                    { width: 4.66666666667%; }
@@ -144,7 +145,7 @@
  }
  strong {
    font-family: 'Permanent Marker', cursive;
-   font-size: 24pt;
+   font-size: 16pt;
    color: $dirty-red;
 
  }
@@ -283,7 +284,6 @@
  input[type="email"]:focus,
  input[type="number"]:focus,
  input[type="search"]:focus,
- input[type="text"]:focus,
  input[type="tel"]:focus,
  input[type="url"]:focus,
  input[type="password"]:focus,
@@ -364,7 +364,6 @@
    margin-bottom: 1rem; }
  input,
  textarea,
- select,
  fieldset {
    margin-bottom: 1.5rem; }
  pre,
@@ -377,6 +376,9 @@
  ol,
  form {
    margin-bottom: 2.5rem; }
+ input [type="text"] {
+   margin-bottom: 0px;
+ }
 
 
  /* Utilities
@@ -470,32 +472,36 @@
   .menu {
     position: fixed;
     top: 0;
-    left: 0;
     background-image: url("https://s3.us-east-2.amazonaws.com/roll-for-init-production/navbar3.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 550px 150px;
     font-family: 'Indie Flower', cursive;
-    width: 100vw;
-    min-width: 100vw;
+    width: 600px;
     height: 150px;
     transform: translate3d(0, -55px, 0);
     transition: transform 0.35s;
     pointer-events: auto;
     color: black;
   }
-  .menu label.menu-toggle {
+  .menu label {
+    height: 45px;
+    width: 100%;
+  }
+  .menu span.menu-toggle {
     position: fixed;
     right: 80px;
-    width: 60px;
-    height: 60px;
-    line-height: 0px;
     display: block;
     padding: 0;
     pointer-events: auto;
     font-size: 20px;
+    float: right;
   }
-  .menu label.menu-title {
+  .menu span.menu-title {
+    position: fixed;
+    left: 80px;
     font-size: 20px;
+    float: left;
   }
   .menu ul {
     list-style: none;
@@ -514,7 +520,7 @@
   .menu-checkbox { display: none; }
   /* fade in checked menu */
   .menu-checkbox:checked + .menu {
-    transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -7px, 0);
   }
   .menu .pull-tab {
     width: 80vw;
@@ -531,8 +537,7 @@
   }
   .view-port {
     position: absolute;
-    background-color: #eee;
-    left: 14.3vw;
+    left: 11vw;
     right: 0;
     z-index: 2;
     padding: 0;
@@ -555,11 +560,11 @@
     margin-bottom: 6vh;
   }
   .message {
-    font-size: 20pt;
+    font-size: 16pt;
     color: #111;
   }
   .message strong {
-    font-size: 20pt;
+    font-size: 16pt;
   }
   .message-form-box {
     height: 6vh;
@@ -576,31 +581,47 @@
     font-family: 'Permanent Marker', cursive;
     padding: 6px 0px 6px 25px;
     font-size: 16pt;
-    color: $dirty-blue;
+    color: #111;
   }
   .dice-box {
     position: fixed;
     right: 0px;
     bottom: 0vh;
-    height: 89vh;
+    height: 86vh;
     margin: 0;
     display: inline-block;
     min-width: 18vh;
+    float: right;
+  }
+  .dice-box label,
+  .dice-box img,
+  .dice-box select,
+  .dice-box button,
+  .dice-box input[type="submit"] {
+    float: right;
   }
   .dice-box label {
     display: inline-block;
   }
-  .dice-box input[type="text"] {
-    width: 6vw;
+  input[type="text"] {
     border: none;
+    border-style: none none solid;
+    border-color: $dirty-blue;
     background-color: transparent;
     font-family: 'Indie Flower', cursive;
     color: $dirty-blue;
     font-size: 14pt;
     padding: 6px 0px 6px 25px;
     display: inline-block;
+    border-radius: 0px;
+    width: 250px;
+
     // caret-color: transparent;
   }
+  input[type="text"]:focus {
+    outline: none;
+  }
+
   .dice-box input[type="radio"] {
     display:none;
   }
@@ -613,8 +634,8 @@
    max-width: 4vh;
    max-height: 4vh;
   }
-  .dice-box input[type="submit"],
-  .dice-box button {
+  input[type="submit"],
+  button {
     width: 140px;
     height: 60px;
     border: none;
@@ -624,6 +645,9 @@
     background-repeat: no-repeat;
     margin:auto;
     padding-left: 0px;
+  }
+  .dice-tile {
+    margin-left: 10px;
   }
   .alignleft {
     float: left;
@@ -643,18 +667,18 @@
     float: left;
   }
   .favorite-roll-box img {
-    width: 8vh;
-    height: 8vh;
+    max-width: 8vh;
+    max-height: 8vh;
     float: left;
   }
   .favorite-dice-box label {
     display: inline-block;
   }
-  .scrap {
-    background: transparent;
+  input.scrap {
+    width: 40px;
   }
   #die_roll_dice_count {
-    width: 4vh;
+    height: 25px;
     margin-left: 2vh;
     margin-top: 1.5vh;
   }
