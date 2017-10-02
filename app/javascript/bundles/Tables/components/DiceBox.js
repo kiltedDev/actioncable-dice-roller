@@ -27,6 +27,9 @@ class DiceBox extends Component {
   handleBonusChange(event) {
     this.setState({ bonus: parseInt(event.target.value) })
   }
+  clearForm(){
+    this.setState({dice_count: 1, die_size: 20, bonus: ""})
+  }
   handleSavedRoll(roll) {
     let formPayload = {
       die_roll: {
@@ -36,9 +39,6 @@ class DiceBox extends Component {
       }
     }
     this.deliverPayload(formPayload)
-  }
-  clearForm(){
-    this.setState({dice_count: 1, die_size: 20, bonus: ""})
   }
 
   handleSubmit(e) {
@@ -64,15 +64,16 @@ class DiceBox extends Component {
   }
 
   render() {
-    let dieStats = [
-      {size: "4", image: this.state.selectedSet.d4_url, id: "die_roll_die_size_4"},
-      {size: "6", image: this.state.selectedSet.d6_url, id: "die_roll_die_size_6"},
-      {size: "8", image: this.state.selectedSet.d8_url, id: "die_roll_die_size_8"},
-      {size: "10", image: this.state.selectedSet.d10_url, id: "die_roll_die_size_10"},
-      {size: "100", image: this.state.selectedSet.d100_url, id: "die_roll_die_size_100"},
-      {size: "12", image: this.state.selectedSet.d12_url, id: "die_roll_die_size_12"},
-      {size: "20", image: this.state.selectedSet.d20_url, id: "die_roll_die_size_20"}
-    ]
+    let dice = ["4","6","8","10","100","12","20"]
+    let dieStats = dice.map((die) => {
+      let key = `d${die}_url`
+      return {
+        size: die,
+        image: this.state.selectedSet[key],
+        id: `die_roll_die_size_${die}`
+      }
+    })
+
 
     let optionElements = this.props.roll_limit.map(option =>{
       return (
@@ -82,7 +83,7 @@ class DiceBox extends Component {
 
     let radioCollection = dieStats.map(die =>{
       return (
-        <div className="six columns dice-tile">
+        <div className="five columns dice-tile">
           <label htmlFor={die.id}>
             <img src={die.image} id={die.size} onClick={this.handleSizeChange} />
             <input type="radio" id={die.id} value={this.state.die_size} name="die_roll[die_size]" checked={this.state.die_size==die.size} onChange={this.handleSizeChange}/>
@@ -94,16 +95,16 @@ class DiceBox extends Component {
     let savedRollsBox = this.props.saved_rolls.map(roll =>{
 
       return (
-        <button  onClick={this.handleSavedRoll.bind(this, roll)}>{roll.name}</button>
+        <button onClick={() => this.handleSavedRoll(roll)}>{roll.name}</button>
       )
     })
 
     return(
-      <div className="dice-box two columns">
+      <div className="dice-box three columns">
 
 
         <form onSubmit={this.handleSubmit}>
-          <div className="six columns">
+          <div className="five columns dice-tile">
             <select id="die_roll_dice_count" className="dice-tile" onChange={this.handleCountChange} value={this.state.dice_count}>
               {optionElements}
             </select>

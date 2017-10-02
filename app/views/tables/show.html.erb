@@ -1,8 +1,8 @@
-<div class="title-bar ten columns">
+<div class="title-bar nine columns">
 </div>
 
-<div class="message-box ten columns">
-  <div class="ten columns" data-behavior='messages' data-table-id='<%= @table.id %>'>
+<div class="message-box twleve columns">
+  <div class="nine columns" data-behavior='messages' data-table-id='<%= @table.id %>'>
     <% @messages.each do |message| %>
       <%= render message %>
     <% end %>
@@ -11,7 +11,7 @@
 
   <%= react_component("DiceBox", props: { roll_limit: @roll_limit, selected_set: @selected_set, dice_sets: @dice_sets, table_id: @table.id, saved_rolls: current_user.saved_rolls }, prerender: false) %>
 
-  <div class="message-form-box twelve columns">
+  <div class="message-form-box nine columns">
     <%= form_for [@table, Message.new], remote: true do |f| %>
       <%= f.text_field :body, autocomplete: "off", autofocus: true %>
     <% end %>
