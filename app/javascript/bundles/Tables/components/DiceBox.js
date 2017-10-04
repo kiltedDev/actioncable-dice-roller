@@ -25,7 +25,11 @@ class DiceBox extends Component {
     this.setState({ die_size: parseInt(event.target.id) })
   }
   handleBonusChange(event) {
-    this.setState({ bonus: parseInt(event.target.value) })
+    if event.target.value > 0 {
+      this.setState({ bonus: parseInt(event.target.value) })
+    } else {
+      this.setState({ bonus: "" })
+    }
   }
   clearForm(){
     this.setState({dice_count: 1, die_size: 20, bonus: ""})
